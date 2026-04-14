@@ -1,0 +1,8 @@
+name: nist-rmf-ai-mcp
+description: MEOK AI Labs — nist rmf
+vendor: MEOK AI Labs
+homepage: https://meok.ai
+repository: https://github.com/CSOAI-ORG/nist-rmf-ai-mcp
+license: MIT
+runtime: python
+entrypoint: server.py
