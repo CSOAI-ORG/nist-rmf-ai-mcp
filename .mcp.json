@@ -1,1 +1,171 @@
-{"name":"nist-rmf-ai-mcp","vendor":"MEOK AI Labs","homepage":"https://meok.ai","repository":"https://github.com/CSOAI-ORG/nist-rmf-ai-mcp","runtime":"python","entrypoint":"server.py"}
+{
+  "name": "nist-rmf-ai-mcp",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for everyone.",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "assess_risk_profile",
+      "description": "Assess an AI system against the full NIST AI RMF 1.0 framework.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "system_description": {
+            "type": "string"
+          },
+          "system_name": {
+            "type": "string"
+          },
+          "deployment_context": {
+            "type": "string"
+          },
+          "caller": {
+            "type": "string"
+          },
+          "tier": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "system_description"
+        ]
+      }
+    },
+    {
+      "name": "map_ai_impact",
+      "description": "Map AI system impacts across people, organizations, and ecosystems.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "system_description": {
+            "type": "string"
+          },
+          "system_name": {
+            "type": "string"
+          },
+          "affected_populations": {
+            "type": "string"
+          },
+          "deployment_scale": {
+            "type": "string"
+          },
+          "caller": {
+            "type": "string"
+          },
+          "tier": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "system_description"
+        ]
+      }
+    },
+    {
+      "name": "generate_risk_controls",
+      "description": "Generate NIST-aligned control recommendations for identified AI risks.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "identified_risks": {
+            "type": "string"
+          },
+          "system_name": {
+            "type": "string"
+          },
+          "risk_tolerance": {
+            "type": "string"
+          },
+          "caller": {
+            "type": "string"
+          },
+          "tier": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "identified_risks"
+        ]
+      }
+    },
+    {
+      "name": "crosswalk_to_eu_ai_act",
+      "description": "Map NIST AI RMF functions and subcategories to EU AI Act articles.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "nist_functions": {
+            "type": "string"
+          },
+          "focus_area": {
+            "type": "string"
+          },
+          "caller": {
+            "type": "string"
+          },
+          "tier": {
+            "type": "string"
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "name": "create_risk_report",
+      "description": "Generate a complete NIST AI RMF compliance report in markdown.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "system_description": {
+            "type": "string"
+          },
+          "system_name": {
+            "type": "string"
+          },
+          "organization": {
+            "type": "string"
+          },
+          "include_crosswalk": {
+            "type": "boolean"
+          },
+          "caller": {
+            "type": "string"
+          },
+          "tier": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "system_description"
+        ]
+      }
+    },
+    {
+      "name": "check_trustworthy_characteristics",
+      "description": "Evaluate AI system against NIST's 7 trustworthy AI characteristics.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "system_description": {
+            "type": "string"
+          },
+          "system_name": {
+            "type": "string"
+          },
+          "responses": {
+            "type": "string",
+            "nullable": true
+          },
+          "caller": {
+            "type": "string"
+          },
+          "tier": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "system_description"
+        ]
+      }
+    }
+  ]
+}

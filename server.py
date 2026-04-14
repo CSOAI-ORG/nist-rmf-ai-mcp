@@ -15,6 +15,11 @@ Install: pip install mcp
 Run:     python server.py
 """
 
+
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 import json
 import math
 import re
@@ -666,7 +671,7 @@ def assess_risk_profile(
     deployment_context: str = "",
     caller: str = "anonymous",
     tier: str = "free",
-) -> dict:
+api_key: str = "") -> dict:
     """Assess an AI system against the full NIST AI RMF 1.0 framework.
 
     Evaluates the system description against all four core functions
@@ -686,6 +691,10 @@ def assess_risk_profile(
         Complete NIST AI RMF risk profile with per-function assessments,
         identified risks, and prioritized recommendations.
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     rate_err = _check_rate_limit(caller, tier)
     if rate_err:
         return {"error": rate_err}
@@ -829,7 +838,7 @@ def map_ai_impact(
     deployment_scale: str = "organizational",
     caller: str = "anonymous",
     tier: str = "free",
-) -> dict:
+api_key: str = "") -> dict:
     """Map AI system impacts across people, organizations, and ecosystems.
 
     Rates severity and likelihood per NIST AI RMF MAP function guidelines.
@@ -848,6 +857,10 @@ def map_ai_impact(
     Returns:
         Impact map with severity and likelihood ratings across all categories.
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     rate_err = _check_rate_limit(caller, tier)
     if rate_err:
         return {"error": rate_err}
@@ -948,7 +961,7 @@ def generate_risk_controls(
     risk_tolerance: str = "moderate",
     caller: str = "anonymous",
     tier: str = "free",
-) -> dict:
+api_key: str = "") -> dict:
     """Generate NIST-aligned control recommendations for identified AI risks.
 
     Given identified risks, produces specific control recommendations
@@ -966,6 +979,10 @@ def generate_risk_controls(
     Returns:
         Prioritized control recommendations with NIST RMF references.
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     rate_err = _check_rate_limit(caller, tier)
     if rate_err:
         return {"error": rate_err}
@@ -1242,7 +1259,7 @@ def crosswalk_to_eu_ai_act(
     focus_area: str = "",
     caller: str = "anonymous",
     tier: str = "free",
-) -> dict:
+api_key: str = "") -> dict:
     """Map NIST AI RMF functions and subcategories to EU AI Act articles.
 
     This is the killer feature -- regulation-to-regulation mapping that
@@ -1261,6 +1278,10 @@ def crosswalk_to_eu_ai_act(
         Detailed crosswalk mapping between NIST AI RMF and EU AI Act
         with alignment strength ratings and rationale.
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     rate_err = _check_rate_limit(caller, tier)
     if rate_err:
         return {"error": rate_err}
@@ -1340,7 +1361,7 @@ def create_risk_report(
     include_crosswalk: bool = True,
     caller: str = "anonymous",
     tier: str = "free",
-) -> dict:
+api_key: str = "") -> dict:
     """Generate a complete NIST AI RMF compliance report in markdown.
 
     Produces a comprehensive report covering risk profile, impact mapping,
@@ -1358,6 +1379,10 @@ def create_risk_report(
     Returns:
         Complete markdown-formatted compliance report.
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     rate_err = _check_rate_limit(caller, tier)
     if rate_err:
         return {"error": rate_err}
@@ -1517,7 +1542,7 @@ def check_trustworthy_characteristics(
     responses: Optional[str] = None,
     caller: str = "anonymous",
     tier: str = "free",
-) -> dict:
+api_key: str = "") -> dict:
     """Evaluate AI system against NIST's 7 trustworthy AI characteristics.
 
     Assesses the system against: Valid & Reliable, Safe, Secure & Resilient,
@@ -1536,6 +1561,10 @@ def check_trustworthy_characteristics(
     Returns:
         Per-characteristic assessment with scores, gaps, and recommendations.
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     rate_err = _check_rate_limit(caller, tier)
     if rate_err:
         return {"error": rate_err}

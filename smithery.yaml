@@ -1,8 +1,116 @@
 name: nist-rmf-ai-mcp
-description: MEOK AI Labs — nist rmf
-vendor: MEOK AI Labs
-homepage: https://meok.ai
-repository: https://github.com/CSOAI-ORG/nist-rmf-ai-mcp
-license: MIT
-runtime: python
-entrypoint: server.py
+description: "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for\
+  \ everyone."
+version: 1.0.0
+tools:
+- name: assess_risk_profile
+  description: Assess an AI system against the full NIST AI RMF 1.0 framework.
+  parameters:
+  - name: system_description
+    type: string
+    required: true
+  - name: system_name
+    type: string
+    required: false
+  - name: deployment_context
+    type: string
+    required: false
+  - name: caller
+    type: string
+    required: false
+  - name: tier
+    type: string
+    required: false
+- name: map_ai_impact
+  description: Map AI system impacts across people, organizations, and ecosystems.
+  parameters:
+  - name: system_description
+    type: string
+    required: true
+  - name: system_name
+    type: string
+    required: false
+  - name: affected_populations
+    type: string
+    required: false
+  - name: deployment_scale
+    type: string
+    required: false
+  - name: caller
+    type: string
+    required: false
+  - name: tier
+    type: string
+    required: false
+- name: generate_risk_controls
+  description: Generate NIST-aligned control recommendations for identified AI risks.
+  parameters:
+  - name: identified_risks
+    type: string
+    required: true
+  - name: system_name
+    type: string
+    required: false
+  - name: risk_tolerance
+    type: string
+    required: false
+  - name: caller
+    type: string
+    required: false
+  - name: tier
+    type: string
+    required: false
+- name: crosswalk_to_eu_ai_act
+  description: Map NIST AI RMF functions and subcategories to EU AI Act articles.
+  parameters:
+  - name: nist_functions
+    type: string
+    required: false
+  - name: focus_area
+    type: string
+    required: false
+  - name: caller
+    type: string
+    required: false
+  - name: tier
+    type: string
+    required: false
+- name: create_risk_report
+  description: Generate a complete NIST AI RMF compliance report in markdown.
+  parameters:
+  - name: system_description
+    type: string
+    required: true
+  - name: system_name
+    type: string
+    required: false
+  - name: organization
+    type: string
+    required: false
+  - name: include_crosswalk
+    type: boolean
+    required: false
+  - name: caller
+    type: string
+    required: false
+  - name: tier
+    type: string
+    required: false
+- name: check_trustworthy_characteristics
+  description: Evaluate AI system against NIST's 7 trustworthy AI characteristics.
+  parameters:
+  - name: system_description
+    type: string
+    required: true
+  - name: system_name
+    type: string
+    required: false
+  - name: responses
+    type: string
+    required: false
+  - name: caller
+    type: string
+    required: false
+  - name: tier
+    type: string
+    required: false
