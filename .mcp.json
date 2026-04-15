@@ -1,6 +1,6 @@
 {
   "name": "nist-rmf-ai-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 \n        ",
+  "description": "Nist Rmf Ai MCP server. Tools: assess risk profile, map ai impact, generate risk controls. Built by MEOK AI Labs.",
   "version": "1.0.0",
   "tools": [
     {

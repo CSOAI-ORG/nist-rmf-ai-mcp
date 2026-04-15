@@ -1,1 +1,11 @@
-{"name":"nist-rmf-ai-mcp","version":"1.0.0","description":"MEOK AI Labs — NIST AI Risk Management Framework MCP","author":"MEOK AI Labs","license":"MIT","repository":{"type":"git","url":"https://github.com/CSOAI-ORG/nist-rmf-ai-mcp"}}
+{
+  "name": "nist-rmf-ai-mcp",
+  "version": "1.0.0",
+  "description": "Nist Rmf Ai MCP server. Tools: assess risk profile, map ai impact, generate risk controls. Built by MEOK AI Labs.",
+  "author": "MEOK AI Labs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CSOAI-ORG/nist-rmf-ai-mcp"
+  }
+}
