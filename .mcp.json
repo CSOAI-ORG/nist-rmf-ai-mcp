@@ -1,6 +1,6 @@
 {
   "name": "nist-rmf-ai-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for everyone.",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 \n        ",
   "version": "1.0.0",
   "tools": [
     {
@@ -152,8 +152,7 @@
             "type": "string"
           },
           "responses": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "caller": {
             "type": "string"
