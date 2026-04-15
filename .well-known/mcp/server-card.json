@@ -1,0 +1,61 @@
+{
+  "name": "nist-rmf-ai",
+  "description": "NIST AI Risk Management Framework (AI RMF 1.0) compliance server. Provides risk assessment against GOVERN/MAP/MEASURE/MANAGE functions, impact mapping, control generation, trustworthy AI evaluation, and crosswalks to EU AI Act. By MEOK AI Labs.",
+  "version": "1.0.0",
+  "protocol_version": "2025-11-25",
+  "publisher": {
+    "name": "MEOK AI Labs",
+    "url": "https://meok.ai",
+    "email": "nicholas@meok.ai"
+  },
+  "repository": "https://github.com/CSOAI-ORG/nist-rmf-ai-mcp",
+  "license": "MIT",
+  "transport": [
+    "stdio",
+    "streamable-http"
+  ],
+  "authentication": {
+    "type": "api-key",
+    "free_tier": true,
+    "free_limit": "15 calls/day"
+  },
+  "tools": [
+    {
+      "name": "assess_risk_profile",
+      "description": "Assess an AI system against the full NIST AI RMF 1.0 framework."
+    },
+    {
+      "name": "map_ai_impact",
+      "description": "Map AI system impacts across people, organizations, and ecosystems."
+    },
+    {
+      "name": "generate_risk_controls",
+      "description": "Generate NIST-aligned control recommendations for identified AI risks."
+    },
+    {
+      "name": "crosswalk_to_eu_ai_act",
+      "description": "Map NIST AI RMF functions and subcategories to EU AI Act articles."
+    },
+    {
+      "name": "create_risk_report",
+      "description": "Generate a complete NIST AI RMF compliance report in markdown."
+    },
+    {
+      "name": "check_trustworthy_characteristics",
+      "description": "Evaluate AI system against NIST's 7 trustworthy AI characteristics."
+    }
+  ],
+  "categories": [
+    "AI & Machine Learning",
+    "Security & Compliance"
+  ],
+  "pricing": {
+    "free": {
+      "calls_per_day": 15
+    },
+    "pro": {
+      "price": "$29/month",
+      "url": "https://meok.ai/pricing"
+    }
+  }
+}
