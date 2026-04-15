@@ -1,0 +1,10 @@
+{
+  "name": "nist-rmf-ai-mcp",
+  "description": "MEOK AI Labs \u2014 nist-rmf-ai-mcp",
+  "vendor": "MEOK AI Labs",
+  "homepage": "https://meok.ai",
+  "repository": "https://github.com/CSOAI-ORG/nist-rmf-ai-mcp",
+  "license": "MIT",
+  "runtime": "python",
+  "entryPoint": "mcp-wrapper.py"
+}

@@ -25,3 +25,6 @@ Repository = "https://github.com/CSOAI-ORG/nist-rmf-ai-mcp"
 [tool.hatch.build.targets.wheel]
 packages = ["."]
 only-include = ["server.py"]
+
+[project.scripts]
+nist_rmf_ai_mcp = "server:main"
