@@ -1747,5 +1747,96 @@ def neural_insights(api_key: str = "") -> dict:
 # Entry point
 # ===========================================================================
 
+@mcp.tool()
+def quick_scan(description: str) -> dict:
+    """One-line system description to instant NIST AI RMF risk profile. No API key needed.
+
+    Args:
+        description: Brief description of your AI system (e.g. 'facial recognition for building access')
+
+    Returns:
+        Instant NIST AI RMF risk profile with identified risk areas and priority functions.
+    """
+    risk_areas = _identify_risk_areas(description)
+    overall = round(sum(risk_areas.values()) / max(len(risk_areas), 1), 3)
+    level = _determine_risk_level(overall)
+
+    # Determine priority NIST functions
+    priority_functions = []
+    if risk_areas.get("safety", 0) > 0.1 or risk_areas.get("autonomy", 0) > 0.1:
+        priority_functions.append("MEASURE 2.6 (Safety evaluation)")
+    if risk_areas.get("bias_fairness", 0) > 0.1:
+        priority_functions.append("MEASURE 2.11 (Fairness and bias)")
+    if risk_areas.get("privacy", 0) > 0.1:
+        priority_functions.append("MEASURE 2.10 (Privacy risk)")
+    if risk_areas.get("security", 0) > 0.1:
+        priority_functions.append("MEASURE 2.7 (Security and resilience)")
+    if risk_areas.get("transparency", 0) > 0.1:
+        priority_functions.append("MEASURE 2.8/2.9 (Transparency and explainability)")
+    if not priority_functions:
+        priority_functions.append("GOVERN 1 (Establish risk management policies)")
+
+    return {
+        "system": description[:120],
+        "overall_risk_level": level,
+        "overall_risk_score": overall,
+        "risk_areas": {k: {"score": v, "level": _determine_risk_level(v)} for k, v in risk_areas.items() if v > 0},
+        "priority_nist_functions": priority_functions,
+        "core_functions": ["GOVERN", "MAP", "MEASURE", "MANAGE"],
+        "next_step": "Use assess_risk_profile() for full NIST AI RMF assessment",
+        "powered_by": "MEOK AI Labs | https://meok.ai",
+    }
+
+
+@mcp.tool()
+def framework_overview() -> dict:
+    """Returns the NIST AI RMF GOVERN/MAP/MEASURE/MANAGE structure. No parameters needed."""
+    overview = {}
+    for func_name, func_data in NIST_RMF_FUNCTIONS.items():
+        subcats = {}
+        for subcat_id, subcat_data in func_data["subcategories"].items():
+            subcats[subcat_id] = {
+                "title": subcat_data["title"],
+                "description": subcat_data["description"],
+                "detailed_count": len(subcat_data["subcats"]),
+            }
+        overview[func_name] = {
+            "description": func_data["description"],
+            "subcategory_count": len(func_data["subcategories"]),
+            "subcategories": subcats,
+        }
+
+    return {
+        "framework": "NIST AI Risk Management Framework 1.0 (AI 100-1)",
+        "published": "January 2023",
+        "publisher": "National Institute of Standards and Technology (NIST)",
+        "supplementary": "NIST AI 600-1 — Generative AI Profile (July 2024)",
+        "core_functions": overview,
+        "trustworthy_characteristics": [
+            "Valid and Reliable",
+            "Safe",
+            "Secure and Resilient",
+            "Accountable and Transparent",
+            "Explainable and Interpretable",
+            "Privacy-Enhanced",
+            "Fair with Harmful Bias Managed",
+        ],
+        "tools_available": [
+            "quick_scan(description) — instant risk profile",
+            "assess_risk_profile(...) — full NIST AI RMF assessment",
+            "map_ai_impact(...) — impact mapping across people/orgs/ecosystems",
+            "generate_risk_controls(...) — NIST-aligned control recommendations",
+            "crosswalk_to_eu_ai_act(...) — NIST to EU AI Act mapping",
+            "check_trustworthy_characteristics(...) — 7 trustworthy AI characteristics",
+            "create_risk_report(...) — comprehensive markdown report",
+        ],
+        "powered_by": "MEOK AI Labs | https://meok.ai",
+    }
+
+
+def main():
+    mcp.run()
+
+
 if __name__ == "__main__":
     mcp.run()

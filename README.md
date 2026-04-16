@@ -34,6 +34,36 @@ Crosswalk NIST AI RMF requirements to other frameworks (EU AI Act, ISO 42001).
 ### `generative_ai_profile`
 Assess against NIST AI 600-1 Generative AI Profile (July 2024).
 
+## Zero-Friction Tools
+
+### `quick_scan`
+One-line system description to instant NIST risk profile. **No API key needed.**
+
+```
+quick_scan(description="facial recognition for building access control")
+```
+
+### `framework_overview`
+Returns the GOVERN/MAP/MEASURE/MANAGE structure. **No parameters needed.**
+
+```
+framework_overview()
+```
+
+## Claude Desktop Config
+
+```json
+{
+  "mcpServers": {
+    "nist-rmf-ai": {
+      "command": "python",
+      "args": ["server.py"],
+      "cwd": "/path/to/nist-rmf-ai-mcp"
+    }
+  }
+}
+```
+
 ## Authentication
 
 Free tier: 10 calls/day. Upgrade at [meok.ai/pricing](https://meok.ai/pricing) for unlimited access.
