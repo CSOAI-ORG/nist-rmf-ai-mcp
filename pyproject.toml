@@ -4,7 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "nist-rmf-ai-mcp"
-version = "1.0.4"
+version = "1.0.5"
+readme = "README.md"
 description = "Nist Rmf Ai MCP server. Tools: assess risk profile, map ai impact, generate risk controls. Built by MEOK AI Labs."
 license = {file = "LICENSE"}
 requires-python = ">=3.10"
