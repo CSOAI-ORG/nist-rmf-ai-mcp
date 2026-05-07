@@ -89,3 +89,4 @@ Zero-dep verifier: `pip install meok-attestation-verify`
 ## License
 
 MIT
+<!-- mcp-name: io.github.CSOAI-ORG/nist-rmf-ai-mcp -->
