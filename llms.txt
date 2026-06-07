@@ -1,0 +1,51 @@
+# nist-rmf-ai-mcp
+# **MCP server for nist rmf ai mcp operations**
+
+## Install
+```bash
+pip install nist-rmf-ai-mcp
+```
+
+## Auth & Rate Limits
+- Free tier: 10 calls/day. No API key required.
+- Pro tier (£79/mo): unlimited + signed attestations.
+- Enterprise (£1,499/mo): white-label.
+
+## Tools
+
+### `assess_risk_profile`
+Assess an AI system against the full NIST AI RMF 1.0 framework.
+
+### `map_ai_impact`
+Map AI system impacts across people, organizations, and ecosystems.
+
+### `generate_risk_controls`
+Generate NIST-aligned control recommendations for identified AI risks.
+
+### `crosswalk_to_eu_ai_act`
+Map NIST AI RMF functions and subcategories to EU AI Act articles.
+
+### `create_risk_report`
+Generate a complete NIST AI RMF compliance report in markdown.
+
+### `check_trustworthy_characteristics`
+Evaluate AI system against NIST's 7 trustworthy AI characteristics.
+
+### `predict_risk_neural`
+Neural network-based risk prediction that improves from every compliance check.
+
+### `neural_insights`
+Get aggregate learning insights from the neural compliance model.
+
+### `quick_scan`
+One-line system description to instant NIST AI RMF risk profile. No API key needed.
+
+### `framework_overview`
+Returns the NIST AI RMF GOVERN/MAP/MEASURE/MANAGE structure. No parameters needed.
+
+
+## Maintainer
+MEOK AI Labs · hello@meok.ai · https://meok.ai · MIT licensed
+
+## Pairs with
+Governance moat: pair this tool with any of MEOK's 38 governance MCPs (EU AI Act, DORA, NIS2, CRA, GDPR, ISO 42001, etc.) for full compliance coverage.

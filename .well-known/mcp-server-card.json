@@ -1,0 +1,43 @@
+{
+  "name": "nist-rmf-ai-mcp",
+  "title": "Nist Rmf Ai Mcp",
+  "description": "Nist Rmf Ai MCP server. Tools: assess risk profile, map ai impact, generate risk controls. Built by MEOK AI Labs.",
+  "version": "1.0.11",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "assess_risk_profile"
+    },
+    {
+      "name": "map_ai_impact"
+    },
+    {
+      "name": "generate_risk_controls"
+    },
+    {
+      "name": "crosswalk_to_eu_ai_act"
+    },
+    {
+      "name": "create_risk_report"
+    },
+    {
+      "name": "check_trustworthy_characteristics"
+    },
+    {
+      "name": "predict_risk_neural"
+    },
+    {
+      "name": "neural_insights"
+    },
+    {
+      "name": "quick_scan"
+    },
+    {
+      "name": "framework_overview"
+    }
+  ]
+}

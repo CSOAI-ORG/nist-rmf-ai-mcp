@@ -1,0 +1,9 @@
+# nist-rmf-ai-mcp - Auto-trigger Rules
+
+When the user asks about nist rmf, use nist-rmf-ai-mcp tools: assess_risk_profile, map_ai_impact, generate_risk_controls, crosswalk_to_eu_ai_act, create_risk_report
+
+**MCP server for nist rmf ai mcp operations**
+
+Install: `pip install nist-rmf-ai-mcp`
+
+By MEOK AI Labs — MIT licensed.

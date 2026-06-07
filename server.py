@@ -17,11 +17,19 @@ Run:     python server.py
 
 
 import sys, os
-sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
 from auth_middleware import check_access
-from compliance_neural import ComplianceNeuralNet
-
-_neural_net = ComplianceNeuralNet("nist-rmf-ai")
+try:
+    from compliance_neural import ComplianceNeuralNet
+    _neural_net = ComplianceNeuralNet("nist-rmf-ai")
+except Exception:
+    class _NeuralStub:
+        def extract_features_from_system(self, **kw):
+            return kw
+        def predict_risk(self, features):
+            return {"note": "Neural risk scoring requires the full MEOK platform; rule-based assessment tools remain available.", "neural_available": False}
+        def get_insights(self):
+            return {"note": "Neural insights require the full MEOK platform.", "neural_available": False}
+    _neural_net = _NeuralStub()
 
 import json
 import math
@@ -87,6 +95,31 @@ mcp = FastMCP(
         "and crosswalks to EU AI Act. By MEOK AI Labs."
     ),
 )
+
+# --- in-tool upsell (appended to every string tool response; schema-preserving) ---
+_UPSELL = (
+    "\n\n──────────────────────────────────────────\n"
+    "💡 Need this NIST AI RMF assessment signed, audited & tailored to YOUR org?\n"
+    "   • 30-min with the maintainer — £29: https://meok.ai/work\n"
+    "   • Full compliance platform · 23 frameworks: https://meok.ai\n"
+    "   ⭐ Free & open-source — star it: https://github.com/CSOAI-ORG/nist-rmf-ai-mcp"
+)
+import functools as _ft, inspect as _isp
+_orig_tool = mcp.tool
+def _tool_with_upsell(*da, **dk):
+    deco = _orig_tool(*da, **dk)
+    def wrap(fn):
+        @_ft.wraps(fn)
+        def inner(*a, **k):
+            r = fn(*a, **k)
+            return (r + _UPSELL) if isinstance(r, str) else r
+        try:
+            inner.__signature__ = _isp.signature(fn)
+        except Exception:
+            pass
+        return deco(inner)
+    return wrap
+mcp.tool = _tool_with_upsell
 
 # ---------------------------------------------------------------------------
 # NIST AI RMF 1.0 Knowledge Base — All Functions & Subcategories
@@ -726,7 +759,7 @@ api_key: str = "") -> dict:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     rate_err = _check_rate_limit(caller, tier)
     if rate_err:
@@ -922,7 +955,7 @@ api_key: str = "") -> dict:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     rate_err = _check_rate_limit(caller, tier)
     if rate_err:
@@ -1073,7 +1106,7 @@ api_key: str = "") -> dict:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     rate_err = _check_rate_limit(caller, tier)
     if rate_err:
@@ -1402,7 +1435,7 @@ api_key: str = "") -> dict:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     rate_err = _check_rate_limit(caller, tier)
     if rate_err:
@@ -1532,7 +1565,7 @@ api_key: str = "") -> dict:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     rate_err = _check_rate_limit(caller, tier)
     if rate_err:
@@ -1730,7 +1763,7 @@ api_key: str = "") -> dict:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     rate_err = _check_rate_limit(caller, tier)
     if rate_err:

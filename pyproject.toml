@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "nist-rmf-ai-mcp"
-version = "1.0.6"
+version = "1.0.11"
 readme = "README.md"
 description = "Nist Rmf Ai MCP server. Tools: assess risk profile, map ai impact, generate risk controls. Built by MEOK AI Labs."
 license = {file = "LICENSE"}
@@ -25,7 +25,7 @@ Repository = "https://github.com/CSOAI-ORG/nist-rmf-ai-mcp"
 
 [tool.hatch.build.targets.wheel]
 packages = ["."]
-only-include = ["server.py"]
+only-include = ["server.py", "auth_middleware.py"]
 
 [project.scripts]
 nist_rmf_ai_mcp = "server:main"
