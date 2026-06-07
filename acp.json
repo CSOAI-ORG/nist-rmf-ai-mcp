@@ -1,0 +1,28 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "nist-rmf-ai-mcp",
+    "description": "Nist Rmf Ai MCP Server by MEOK AI Labs",
+    "version": "1.0.11",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "nist-rmf-ai-mcp"
+      }
+    ],
+    "capabilities": [
+      "assess_risk_profile",
+      "map_ai_impact",
+      "generate_risk_controls",
+      "crosswalk_to_eu_ai_act",
+      "create_risk_report",
+      "check_trustworthy_characteristics",
+      "predict_risk_neural",
+      "neural_insights",
+      "quick_scan",
+      "framework_overview"
+    ]
+  }
+}

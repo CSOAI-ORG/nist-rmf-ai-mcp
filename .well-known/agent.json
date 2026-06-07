@@ -1,0 +1,113 @@
+{
+  "name": "nist-rmf-ai-mcp",
+  "description": "Nist Rmf Ai MCP Server by MEOK AI Labs",
+  "url": "https://proofof.ai/scorecard/nist-rmf-ai-mcp.html",
+  "version": "1.0.11",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "assess_risk_profile",
+      "name": "Assess Risk Profile",
+      "description": "assess_risk_profile via nist-rmf-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "map_ai_impact",
+      "name": "Map Ai Impact",
+      "description": "map_ai_impact via nist-rmf-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "generate_risk_controls",
+      "name": "Generate Risk Controls",
+      "description": "generate_risk_controls via nist-rmf-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "crosswalk_to_eu_ai_act",
+      "name": "Crosswalk To Eu Ai Act",
+      "description": "crosswalk_to_eu_ai_act via nist-rmf-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "create_risk_report",
+      "name": "Create Risk Report",
+      "description": "create_risk_report via nist-rmf-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "check_trustworthy_characteristics",
+      "name": "Check Trustworthy Characteristics",
+      "description": "check_trustworthy_characteristics via nist-rmf-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "predict_risk_neural",
+      "name": "Predict Risk Neural",
+      "description": "predict_risk_neural via nist-rmf-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "neural_insights",
+      "name": "Neural Insights",
+      "description": "neural_insights via nist-rmf-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "quick_scan",
+      "name": "Quick Scan",
+      "description": "quick_scan via nist-rmf-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "framework_overview",
+      "name": "Framework Overview",
+      "description": "framework_overview via nist-rmf-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}
