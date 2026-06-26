@@ -140,3 +140,8 @@ Once configured, ask your assistant, for example:
 - "Use `assess_risk_profile` to …"
 - "Use `map_ai_impact` to …"
 - "Use `generate_risk_controls` to …"
+
+## See also
+
+MEOK compliance MCP fleet:
+[`meok-eu-aia-art-9-rms-mcp`](https://github.com/CSOAI-ORG/meok-eu-aia-art-9-rms-mcp), [`risk-assessment-ai-mcp`](https://github.com/CSOAI-ORG/risk-assessment-ai-mcp)
